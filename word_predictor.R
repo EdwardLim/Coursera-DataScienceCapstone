@@ -35,21 +35,35 @@ nextWordPrediction <- function(wordCount, text){
                                                quadgrams$bigram==text[2] & 
                                                quadgrams$trigram==text[3],]
                                    [1,]$quadgram)
+    
+    # If no prediction, then back-off to predict using trigrams.
+    if (is.na(wordPrediction)) {
+      return (nextWordPrediction(2,text[2:3]))
+    } 
   }
 
-    # Predict using trigrams
-  else if (wordCount == 2) {
+  # Predict using trigrams
+  if (wordCount == 2) {
     wordPrediction <- as.character(trigrams[trigrams$unigram==text[1] & 
                                               trigrams$bigram==text[2],]
                                    [1,]$trigram)
+    
+    # If no prediction, then back-off to predict using bigrams
+    if (is.na(wordPrediction)) {
+      return (nextWordPrediction(1,text[3:3]))
+    }
   }
   
   # Predict using bigrams
-  else {
+  if (wordCount == 1) {
     wordPrediction <- as.character(bigrams[bigrams$unigram==text[1],]
                                    [1,]$bigram)
   }
   
-  print(wordPrediction)
+  if (wordCount == 0) {
+    wordPrediction <- NA
+  }
   
+  print(wordPrediction)
+
 }

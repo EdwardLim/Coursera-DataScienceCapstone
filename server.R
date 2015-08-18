@@ -5,12 +5,12 @@ source("./word_predictor.R")
 shinyServer(function(input, output) {
   
   nextWord <- reactive({
-    inputText <- cleanInput(input$Text)
+    inputText <- cleanText(input$Text)
     numWords <- length(inputText)
     
     # Attach tokenized and "cleaned" text as well as number of words
     # to the respective elements in Shiny UI.
-    output$InputText <- renderPrint(inputText)  # Show as a vector of words with ""
+    output$InputText <- renderPrint(inputText)
     output$NumWords <- renderText(numWords)
     
     # Predict the next word using the function in word_predictor.R

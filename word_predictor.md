@@ -18,7 +18,7 @@ To create the word prediction app, we took the following steps:
 
 - From the HC Corpora dataset, we cleaned the data and then tokenize the data into n-grams. We created bigrams, trigrams and quadgrams.
 - These n-grams are then stored in term freqency matrices.
-- The matrices are then used to do word prediction
+- The matrices are then used to do word prediction.
 
 How to Use the App
 ========================================================
@@ -34,7 +34,7 @@ Additional Information
 
 The app is hosted on [ShinyApps.io](https://edwardlim.shinyapps.io/Coursera-DataScienceCapstone)
 
-The R Presentation is available at [RPubs](http://rpubs.com/EdwardLim/Coursera-DataScienceCapstone).
+The R Presentation is available at [RPubs](http://rpubs.com/EdwardLim/CapstoneFinalPresentation).
 
 Source code for ui.R and server.R files and the word prediction app are available in my [GitHub repository](https://github.com/EdwardLim/Coursera-DataScienceCapstone).
 
